@@ -1,14 +1,14 @@
-class AppController { 
-}
+// class AppController { 
+// }
 
-const appComponent = {
-  template: `
-        <div class="container-fluid">
-          <navbar></navbar>
-          <ui-view></ui-view>
-        </div>
-    `,
-  controller: AppController
-};
+// const appComponent = {
+//   template: `
+//         <div class="container-fluid">
+//           <navbar></navbar>
+//           <ui-view></ui-view>
+//         </div>
+//     `,
+//   controller: AppController
+// };
 
-export default appComponent;
+// export default appComponent;

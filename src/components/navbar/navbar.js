@@ -1,24 +1,22 @@
 class NavBarController {
 
   /*@ngInject*/
-  constructor() {
+  constructor() {        
 
-    this.brand = 'Synopsis';
+    this.items = 
+      [
+        {
+          href: ["Home"],
+          label: 'Home',
+          isActive: true
+        }
+      ];
 
-    this.items = [{
-      href: '#',
-      label: 'Home',
-      isActive: true
-    }, {
-      href: '#',
-      label: 'About',
-      isActive: false
-    }, {
-      href: '#',
-      label: 'Contact',
-      isActive: false
-    }];
 
+  }
+
+  $onInit() {
+     
   }
 
   onItemClicked(clickedItem) {
@@ -30,8 +28,10 @@ class NavBarController {
 }
 
 const Navbar = {
-  template: require('./navbar.html'),
-  controller: NavBarController
+  template: require('./nav-bar.html'),
+  controller: NavBarController,
+  controllerAs: "model"
 };
 
 export default Navbar;
+
