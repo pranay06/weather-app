@@ -6,9 +6,14 @@ class NavBarController {
     this.items = 
       [
         {
-          href: ["Home"],
-          label: 'Home',
+          href: ["Weather"],
+          label: 'Weather',
           isActive: true
+        },
+        {
+          href: ["About"],
+          label: 'About',
+          isActive: false
         }
       ];
 
