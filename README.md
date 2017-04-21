@@ -8,8 +8,10 @@ Weather Application using angular 1.5 components
 * Development server with live reload.
 * Production builds 
 * Testing environment using karma to run tests and jasmine as the framework.
+* Test cases have been written for all javascripts.
 * Code coverage when tests are run.
 * No gulp and no grunt, just npm scripts.
+
 
 >Warning: Make sure you're using the latest version of Node.js and NPM
 
