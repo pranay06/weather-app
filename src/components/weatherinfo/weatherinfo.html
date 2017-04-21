@@ -1,0 +1,43 @@
+<div layout="row" layout-align="center center">
+	<md-input-container >
+		<label>City</label>
+		<input ng-model="model.city">
+	</md-input-container>
+	<div>
+		<md-button ng-click="model.getWeatherInfo()" class="md-raised md-primary">Get Weather</md-button>	
+	</div>
+	
+</div>
+<md-card ng-if="model.dataStatus === true">
+	<md-card-content layout="row" layout-align="center center">
+		<table cellspacing="20" border="0">
+			<tr>
+				<th  ng-repeat="field in model.fields">
+					{{field}}
+				</th>
+			</tr>
+			<tr ng-repeat="oneDayWeather in model.weatherinfo.list">
+				<td><div layout="row" layout-align="center center">{{oneDayWeather.dt}}</div></td>
+				<td><div layout="row" layout-align="center center">{{oneDayWeather.pressure}}<d/iv></td>
+				<td><div layout="row" layout-align="center center">{{oneDayWeather.humidity}}</div></td>
+				<!-- <td>{{oneDayWeather.humidity}}</td> -->
+				<td><div layout="row" layout-align="center center">{{oneDayWeather.speed}}</div></td>
+				<td><div layout="row" layout-align="center center">{{oneDayWeather.deg}}</div></td>
+			
+			</tr>
+		</table>
+		<!-- <div layout="row" layout-align = "space-around center">
+			<span ng-repeat="field in model.fields">{{field}}</span>
+			<md-divider md-inset></md-divider>
+		</div>
+		<div layout="row" layout-align = "space-around center" ng-repeat="oneDayWeather in model.weatherinfo.list">
+			<span>{{oneDayWeather.dt}}</span>
+			<span>{{oneDayWeather.pressure}}</span>
+			<span>{{oneDayWeather.humidity}}</span>
+			<span>{{oneDayWeather.speed}}</span>
+			<span>{{oneDayWeather.deg}}</span>
+			<md-divider></md-divider>
+		</div> -->
+		
+	</md-card-content>
+</md-card>

@@ -1,0 +1,39 @@
+<!-- NAV BAR 
+<div>
+    <md-toolbar class=main-toolbar>
+        <div layout="row">
+            <div flex="100">
+                Weather App
+            </div>
+            <div class="header_icons" flex="90">
+                <div flex-offset="80" ng-repeat="item in model.items">
+                    <a ng-link="item.href">item.label</a>                
+                </div>
+            </div>
+          </div>
+        </div>
+    </md-toolbar>
+</div> -->
+
+
+<md-toolbar  class="md-whiteframe-z5" style="background-color:#3fb0ac" layout="row" layout-align="space-between center">
+    <!-- <div class="md-toolbar-tools" layout="row" layout-align="space-between center" > -->
+    <h1 flex="80" class="md-headline" >Weather Application</h1>
+        <!-- <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <md-icon md-font-icon="menu" />
+          <i class="material-icons" style="color:white;font:bold;" >menu</i>
+        </md-button>
+        <h2>
+          Weather Application
+        </h2> -->
+        
+    <div layout="row" layout-align="space-around center" flex >
+        <span ng-repeat="item in model.items" ng-link="item.href">{{item.label}}</span>
+        
+    </div>
+        
+        <!-- <i class="material-icons" style="color:white;font:bold;" >home</i>
+        <i class="material-icons" style="color:white;font:bold;" >notifications</i>
+        <i class="material-icons" style="color:white;font:bold;" >person</i> -->
+    <!-- </div> -->
+</md-toolbar>
