@@ -56,6 +56,7 @@ module.exports = function makeWebpackConfig() {
 
     // Filename for non-entry points
     // Only adds hash in build mode
+    // Doubtt
     chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
   };
 
@@ -109,6 +110,7 @@ module.exports = function makeWebpackConfig() {
       //
       // Reference: https://github.com/webpack/style-loader
       // Use style-loader in development.
+      // Doubtt
       loader: isTest ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!sass!postcss')
     }, {
       // ASSET LOADER
@@ -120,6 +122,7 @@ module.exports = function makeWebpackConfig() {
       test: /\.(png|jpg|jpeg|gif)$/,
       loader: 'file'
     },{
+      // Doubtt
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
       loader: "url?limit=10000&mimetype=application/font-woff"
     }, {
@@ -147,6 +150,7 @@ module.exports = function makeWebpackConfig() {
   // Reference: https://github.com/ColCh/isparta-instrumenter-loader
   // Instrument JS files with Isparta for subsequent code coverage reporting
   // Skips node_modules and files that end with .test.js
+  //Doubtt -- how does this gets related to karma.conf.js
   if (isTest) {
     config.module.preLoaders.push({
       test: /\.js$/,
@@ -163,6 +167,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: https://github.com/postcss/autoprefixer-core
    * Add vendor prefixes to your css
    */
+   //DOUBTT
   config.postcss = [
     autoprefixer({
       browsers: ['last 2 version']
@@ -174,6 +179,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#plugins
    * List: http://webpack.github.io/docs/list-of-plugins.html
    */
+   //SELF-DOUBT_CHECK
   config.plugins = [
     new ngAnnotatePlugin({
       add: true
@@ -184,15 +190,18 @@ module.exports = function makeWebpackConfig() {
   if (!isTest) {
     // Reference: https://github.com/ampedandwired/html-webpack-plugin
     // Render index.html
+    //Generates a solid base html page for your web application with all your webpack generated css and js files built in. Supports custom templates, favicon, html-minifications and more:
     config.plugins.push(
       new HtmlWebpackPlugin({
         template: './src/index.html',
         inject: 'body'
       }),
+      // inject: true | 'head' | 'body' | false Inject all assets into the given template or templateContent - When passing true or 'body' all javascript resources will be placed at the bottom of the body element. 'head' will place the scripts in the head element.
 
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
       // Extract css files
       // Disabled when in test mode or not in build mode
+      //DOUBTT -- What is the need of this when line 114 is already done
       new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
     )
   }
@@ -214,6 +223,8 @@ module.exports = function makeWebpackConfig() {
 
       // Copy assets from the resources folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
+      //DOUBTT -->What was the need for this when resources are already pushed by modules
+
       new CopyWebpackPlugin([{
         from: __dirname + '/src/resources',
         to: 'resources'
@@ -231,6 +242,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#devserver
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
+   //YET to understand
   config.devServer = {
     contentBase: './src',
     stats: 'minimal'
